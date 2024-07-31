@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+// App.js
+import React from 'react';
 import './App.css';
 
 function App() {
+  const text = "Connecting all circles";
+  const textArray = text.split('');
+  const radius = 500; // Adjusted radius for better spacing
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <video className="video" src="Globe.mp4" autoPlay muted />
+      <div className="coloring">
+        {textArray.map((char, index) => (
+          <span
+            key={index}
+            style={{
+              transform: `
+                rotateY(${(index * 360) / textArray.length}deg)
+                translateZ(${radius}px)
+                rotateY(${-(index * 360) / textArray.length}deg)
+              `,
+            }}
+          >
+            {char}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

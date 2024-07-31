@@ -47,7 +47,7 @@ z-index: 2;
 }*/
 
 .coloring span {
-  position: static;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform-origin: 0 100px;
